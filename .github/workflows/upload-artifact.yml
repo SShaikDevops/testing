@@ -7,7 +7,7 @@ steps:
 -name: Upload Artifact
 uses: actions/upload-artifact@v3
 with:
-  name:artifact
+ name:artifact
 path:artifact.txt
 
 
