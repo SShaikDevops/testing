@@ -4,6 +4,8 @@ jobs:
   upload:
     runs-on: windows-2022
     steps:
+    - name: get code
+      uses: actions/checkout@v3
     - name: Upload Artifact
       uses: actions/upload-artifact@v3
       with:
