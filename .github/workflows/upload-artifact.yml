@@ -1,11 +1,13 @@
 name : Download Artifact
 on : push
 jobs:
-  name: upload artifact
-     runs-on: redhat-linux-2022
+ upload-artifact
+     runs-on:windows-2022
        steps:
-     - name: Upload Artifact
+      - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: my-artifact
-          path: src
+          path:artifact.txt
+
+
