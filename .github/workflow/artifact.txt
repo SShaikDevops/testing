@@ -1,13 +1,13 @@
 name : Download Artifact
 on : push
 jobs:
- upload-artifact
- runs-on:windows-2022
-steps:
--name: Upload Artifact
-uses: actions/upload-artifact@v3
-with:
- name:artifact
-path:artifact.txt
+  upload:
+    runs-on: windows-2022
+    steps:
+    - name: Upload Artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name:artifact
+        path:artifact.txt
 
 
