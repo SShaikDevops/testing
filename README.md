@@ -1,1 +1,38 @@
-# testing-
+name : Download Artifact
+on : push
+jobs:
+  lint:
+    runs-on: windows-2022
+    steps:
+      - name : get code
+        uses : actions/checkout@v3
+      - name : Install dependencies
+        run  : npm ci
+      - name : Lint
+        run  : npm run lint
+  test:
+    runs-on: windows-2022
+    steps:
+      - name : get code
+        uses : actions/checkout@v3
+      - name : Install dependencies
+        run  : npm ci
+      - name : Run test
+        run  : npm run test
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: src
+  deploy:
+    needs : test
+    runs-on: windows-2022
+        run  : ls
+      - name : get code
+        uses : actions/checkout@v3
+      - name : Install dependencies
+        run  : npm ci
+      - name : build code
+        run  : npm run build
+      - name : deploy code
+        run  : echo "Deploying ..."
